@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+/* 🔥 FIX AUTOFILL + PASSWORD ICON + FLASH */
+@layer base {
+  input {
+    background-color: #1E293B;
+    color: white;
+  }
+
+  input:focus {
+    background-color: #1E293B;
+    color: white !important;
+    outline: none;
+  }
+
+  /* 🔥 AUTOFILL (Chrome) */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active,
+  .auth-input:-webkit-autofill,
+  .auth-input:-webkit-autofill:hover,
+  .auth-input:-webkit-autofill:focus,
+  .auth-input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #1E293B inset !important;
+    -webkit-text-fill-color: white !important;
+    caret-color: white !important;
+    background-color: #1E293B !important;
+    color: white !important;
+    border-color: #334155 !important;
+
+    transition: background-color 9999s ease-in-out 0s;
+  }
+
+  /* 🔥 QUITA EL OJO DEL NAVEGADOR */
+  input[type="password"]::-webkit-textfield-decoration-container {
+    display: none;
+  }
+
+  input[type="password"]::-ms-reveal {
+    display: none;
+  }
+
+  input[type="password"]::-ms-clear {
+    display: none;
+  }
+
+  input::-webkit-credentials-auto-fill-button {
+    visibility: hidden;
+    display: none;
+  }
+}
+
+.auth-input {
+  color: white !important;
+}
+
+.auth-input:focus {
+  color: white !important;
+}
+
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.loader {
+  width: 50px;
+  padding: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #25b09b;
+  --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+          mask: var(--_m);
+  -webkit-mask-composite: source-out;
+          mask-composite: subtract;
+  animation: l3 1s infinite linear;
+}
+
+@keyframes l3 {
+  to {
+    transform: rotate(1turn);
+  }
+}

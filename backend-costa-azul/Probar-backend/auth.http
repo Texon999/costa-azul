@@ -1,0 +1,23 @@
+### Registrar usuario
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "user": "test1",
+  "password": "123"
+}
+
+
+
+
+
+
+
+### Iniciar sesión
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "user": "test1",
+  "password": "123"
+}

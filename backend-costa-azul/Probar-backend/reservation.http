@@ -1,0 +1,78 @@
+### Variable
+@token = 
+### CREAR RESERVA
+POST http://localhost:3000/api/reservas
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "id_sede": 1,
+  "fecha_inicio": "2026-12-12",
+  "fecha_fin": "2027-12-12"
+}
+
+###
+
+### MIS RESERVAS
+GET http://localhost:3000/api/reservas/me
+Authorization: Bearer {{token}}
+
+###
+
+### BUSCAR POR FECHAS
+GET http://localhost:3000/api/reservas/date?fecha_inicio=2026-12-0&fecha_fin=2027-12
+Authorization: Bearer {{token}}
+
+###
+
+### BUSCAR POR ESTADO
+GET http://localhost:3000/api/reservas/status?status=cancelada
+Authorization: Bearer {{token}}
+
+###
+
+### ACTUALIZAR 
+PUT http://localhost:3000/api/reservas/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "id_sede": 1,
+  "fecha_inicio": "2026-12-12",
+  "fecha_fin": "2027-12-12",
+  "estado": "cancelada"
+}
+
+###
+
+### ACTUALIZAR SOLO ESTADO
+PATCH http://localhost:3000/api/reservas/1/status
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "estado": "cancelada"
+}
+
+###
+
+### ACTUALIZAR SOLO PRECIO
+PATCH http://localhost:3000/api/reservas/1/precio
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "precio": 213213
+}
+
+###
+
+### ELIMINAR MIS RESERVAS CANCELADAS
+DELETE http://localhost:3000/api/reservas/cancelled
+Authorization: Bearer {{token}}
+
+
+
+
+
+
