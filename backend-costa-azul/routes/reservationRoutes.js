@@ -6,12 +6,11 @@ import { protect } from '../middlewares/authMiddleware.js'
 
 const router = Router()
 
-
-// Rutas públicas (sin autenticación)
-router.get('/public', getAllReservations)
-
 // Rutas protegidas (requieren autenticación)
 router.use(protect)
+
+// Listar todas las reservas requiere autenticación (antes estaba expuesta sin token)
+router.get('/public', getAllReservations)
 
 router.get( '/me', getReservations )
 router.post('/', createReservation)
