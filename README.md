@@ -60,7 +60,7 @@ costa-azul/
    # crear .env con tus valores (no hay .env.example en el repo por seguridad)
    ```
 
-   Variables necesarias: `PORT`, `DB_HOST`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`, `JWT_SECRET`, `JWT_EXPIRES_IN`.
+   Variables necesarias: `PORT`, `CORS_ORIGIN`, `DB_HOST`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`, `JWT_SECRET`, `JWT_EXPIRES_IN`.
 
 2. Crea las tablas en MySQL ejecutando `models/db.sql` (incluye datos de prueba: usuario `demo` / `demo123`).
 
